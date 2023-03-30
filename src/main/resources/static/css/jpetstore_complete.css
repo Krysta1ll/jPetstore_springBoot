@@ -1,0 +1,249 @@
+/*css reset  */
+
+body {
+    background-color: rgb(255, 255, 255);
+    font: 12px/1.5 tahoma, arial, Microsoft YaHei, sans-serif;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.shop-name {
+    font: normal bold 30px '微软雅黑';
+    margin-left: 90px;
+    margin-top: 60px;
+;
+}
+
+.user {
+    width: 1100px;
+    height: 550px;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: center;
+    overflow: hidden;
+    background: url("../images/background.png");
+    padding: 50px;
+}
+
+.user-content {
+    position: relative;
+    margin: 0 auto;
+    margin-top: -25px;
+    background: #fff;
+    width: 900px;
+    height: 600px;
+    box-shadow: 0px 20px 20px -18px #000;
+}
+
+.user-title {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    border-bottom: 1px solid #999;
+}
+
+.user-form {
+    position: relative;
+    padding: 20px;
+}
+
+.user-form-item {
+    position: relative;
+    margin: 25px;
+}
+
+.user-form_1-item {
+    position: absolute;
+    top: 30px;
+    right: 350px;
+    /* position: relative;
+margin: 25px; */
+}
+
+.user-form-head {
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    text-decoration: underline;
+}
+
+.user-form-head_1 {
+    position: relative;
+    margin-left: 30px;
+}
+
+.user-form_1-head_a {
+    position: absolute;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    text-decoration: underline;
+    right: -140px;
+    position: relative;
+}
+/* .user-form_1-head_1_a {
+position: relative;
+margin-left: 30px;
+} */
+
+.user-form-label-icon {
+    position: relative;
+    left: -10px;
+    top: 4px;
+    background: #fff;
+    color: rgb(92, 88, 88);
+    text-align: center;
+    border-right: 1px solid #fff;
+    font-size: 20px;
+}
+
+.user-form-input {
+    position: relative;
+    padding: 10px 0 10 50px;
+    width: 150px;
+    height: 25px;
+    line-height: 18px;
+    font-size: 15px;
+    borde: 1px solid #bdbdbd;
+    outline: none;
+    margin-left: 0px;
+}
+
+.user-form-input_and_icon {
+    position: relative;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.user-form-submit {
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+    padding: 2px 0;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background: #2f988c;
+    color: #fff;
+    cursor: pointer;
+    margin-top: -50px;
+}
+
+/*.user-form-error {*/
+/*    font-size: 18px;*/
+/*    color: red;*/
+/*    position: absolute;*/
+/*    margin-left: 300px;*/
+/*    margin-top: -6px;*/
+/*}*/
+
+/*.errormsg {*/
+/*    float: right;*/
+/*    position: relative;*/
+/*    left: 15px;*/
+/*}*/
+
+.position{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0px;
+}
+
+.user-form-error {
+    font-size: 15px;
+    color: red;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: -6px;
+    margin-bottom: 10px;
+}
+
+.user-form-error .errormsg {
+    position: relative;
+    float: right;
+    top: -4px;
+    left: 15px;
+}
+
+.icon-correct {
+    position: absolute;
+    left: 153px;
+    top: 7px;
+    font-size: 24px;
+    line-height: 0px;
+    color: rgb(0, 256, 0);
+}
+
+.icon-error {
+    position: absolute;
+    left: 153px;
+    top: 7px;
+    font-size: 24px;
+    line-height: 0px;
+    color: rgb(256, 0, 0);
+}
+
+.user-form-submit-save {
+    position: absolute;
+    width: 400px;
+    font-size: 20px;
+    padding: 2px 0;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background: #2f988c;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 0px;
+    text-align: center;
+    left: 200px;
+}
+
+.user-form-side {
+    position: relative;
+    margin-top: -243px;
+    position: absolute;
+    left: 260px;
+    position: relative;
+}
+
+.user-form-bottom {
+    position: relative;
+    margin-top: 22px;
+    font-size: 22px;
+}
+
+.user-form-bottom-label_1 {
+    background-color: rgb(212, 207, 207);
+    position: absolute;
+    right: 230px;
+    position: relative;
+}
+
+.user-form-bottom-label_2 {
+    position: absolute;
+    right: -20px;
+    bottom: 55px;
+    position: relative;
+    background-color: rgb(212, 207, 207);
+}
+
+.user-form-input-select {
+    width: 160px;
+    height: 30px;
+}
+
+.user-form-input-select-first {
+    font: #bdbdbd;
+}

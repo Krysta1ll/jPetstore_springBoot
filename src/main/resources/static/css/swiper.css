@@ -1,0 +1,102 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.swiper {
+    /* 相对定位 */
+    position: relative;
+    width: 730px;
+    height: 336px;
+    overflow: hidden;
+}
+
+
+.radios {
+    display: none;
+}
+
+label {
+    position: absolute;
+    bottom: 30px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f58b8b;
+    border-radius: 50%;
+    background-color: #f57f7f;
+}
+label[for="btn1"] {
+    left: 35%;
+}
+label[for="btn2"] {
+    left: 40%;
+}
+label[for="btn3"] {
+    left: 45%;
+}
+label[for="btn4"] {
+    left: 50%;
+}
+label[for="btn5"] {
+    left: 55%;
+}
+label[for="btn6"] {
+    left: 60%;
+}
+label[for="btn7"] {
+    left: 65%;
+}
+ul {
+    /* 让li水平排列 */
+    display: flex;
+    /* 自动计算宽度 */
+    width: calc(730px * 7);
+    /* 过渡时间 */
+    transition: all 1s;
+}
+li {
+    list-style-type: none;
+}
+#btn1:checked ~ ul {
+    margin-left: 0;
+}
+#btn2:checked ~ ul {
+    margin-left: -730px;
+}
+#btn3:checked ~ ul {
+    margin-left: calc(-730px * 2);
+}
+#btn4:checked ~ ul {
+    margin-left: calc(-730px * 3);
+}
+#btn5:checked ~ ul {
+    margin-left: calc(-730px * 4);
+}
+#btn6:checked ~ ul {
+    margin-left: calc(-730px * 5);
+}
+#btn7:checked ~ ul {
+    margin-left: calc(-730px * 6);
+}
+#btn1:checked ~ label[for="btn1"] {
+    background-color: #f00;
+}
+#btn2:checked ~ label[for="btn2"] {
+    background-color: #f00;
+}
+#btn3:checked ~ label[for="btn3"] {
+    background-color: #f00;
+}
+#btn4:checked ~ label[for="btn4"] {
+    background-color: #f00;
+}
+#btn5:checked ~ label[for="btn5"] {
+    background-color: #f00;
+}
+#btn6:checked ~ label[for="btn6"] {
+    background-color: #f00;
+}
+#btn7:checked ~ label[for="btn7"] {
+    background-color: #f00;
+}
+

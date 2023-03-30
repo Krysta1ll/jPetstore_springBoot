@@ -1,0 +1,242 @@
+/*css reset  */
+
+body {
+    background-color: rgb(255, 255, 255);
+    font: 12px/1.5 tahoma, arial, Microsoft YaHei, sans-serif;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.shop-name {
+    font: normal bold 30px '微软雅黑';
+    margin-left: 90px;
+    margin-top: 60px;
+;
+}
+
+.user {
+    width: 1100px;
+    height: 550px;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: center;
+    overflow: hidden;
+    background: url("../images/background.png");
+    padding: 50px;
+}
+
+.user-content {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: #fff;
+    width: 370px;
+    height: 500px;
+    box-shadow: 0px 20px 20px -18px #000;
+    /*text-align: center;*/
+}
+
+.user-content .user-title {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    border-bottom: 1px solid #999;
+}
+
+.user-content .user-form {
+    position: relative;
+    padding: 20px;
+}
+
+.user-content .user-form .user-form-item {
+    position: relative;
+    margin: 25px;
+}
+
+.user-form-label-icon {
+    position: absolute;
+    left: -10px;
+    top: 4px;
+    background: #fff;
+    color: rgb(92, 88, 88);
+    text-align: center;
+    border-right: 1px solid #fff;
+    font-size: 20px;
+}
+
+
+
+.user-form-link-QR .link {
+    position: relative;
+    right: -200px;
+    top: -53px;
+    font-size: 18px;
+    color: rgb(152, 152, 152);
+    text-decoration: none;
+}
+
+.user-form-radio {
+    font-size: 18px;
+}
+
+.user-form .user-form-item .user-form-label {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 40px;
+    line-height: 36px;
+    background: #f3f3f3;
+    color: #d3d3d3;
+    text-align: center;
+    border: right 1px solid #bdbdbd;
+}
+
+.user-form .user-form-item .user-form-input {
+    position: relative;
+    padding: 10px 0 10 50px;
+    width: 250px;
+    height: 30px;
+    line-height: 18px;
+    font-size: 15px;
+    borde: 1px solid #bdbdbd;
+    outline: none;
+    margin-left: 30px;
+}
+
+.user-form .user-form-item .user-form-submit {
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+    padding: 2px 0;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background: #2f988c;
+    color: #fff;
+    cursor: pointer;
+    margin-top: -50px;
+}
+
+.user-form .user-form-link {
+    text-align: right;
+    margin-right: 5px;
+}
+
+.user-form-link-change .link {
+    position: absolute;
+    right: 10px;
+    bottom: -65px;
+    font-size: 15px;
+    color: rgb(152, 152, 152);
+    text-decoration: none;
+}
+
+.user-form .user-form-link .link {
+    color: #999;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.user-form .user-form-link .link:hover {
+    color: #618cc3;
+}
+
+.user-form .user-form-link-sign .link {
+    position: relative;
+    right: -150px;
+    top: 20px;
+    font-size: 15px;
+    color: rgb(152, 152, 152);
+    text-decoration: none;
+}
+
+.user-form-link-register .link {
+    position: relative;
+    right: -250px;
+    top: 70px;
+    font-size: 15px;
+    color: rgb(152, 152, 152);
+    text-decoration: none;
+}
+
+.position{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0px;
+}
+
+.user-form-error {
+    font-size: 15px;
+    color: red;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: -6px;
+    margin-bottom: 10px;
+}
+
+.user-form-error .errormsg {
+    position: relative;
+    float: right;
+    top: -4px;
+    left: 15px;
+}
+
+.user-form-submit-register {
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+    padding: 2px 0;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background: #2f988c;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+    left: 5px;
+}
+
+.user-form-button {
+    position: absolute;
+    width: 120px;
+    height: 10px;
+    font-size: 16px;
+    padding: 2px 0;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background: #2f988c;
+    color: #fff;
+    cursor: pointer;
+    margin-top: -50px;
+    right: -35px;
+    top: 48px;
+}
+
+.user-form-link-history .link {
+    position: absolute;
+    left: 10px;
+    bottom: -65px;
+    font-size: 15px;
+    color: rgb(152, 152, 152);
+    text-decoration: none;
+}
+/*.user-form-link-main .link {*/
+/*    position: absolute;*/
+/*    left: 10px;*/
+/*    bottom: -65px;*/
+/*    font-size: 15px;*/
+/*    color: rgb(152, 152, 152);*/
+/*    text-decoration: none;*/
+/*}*/
