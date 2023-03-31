@@ -1,7 +1,7 @@
 package com.example.jpetstore_sb.model;
 
 
-public class AccountBean {
+public class Account {
     private static final long serialVersionUID = 8751282105532159742L;
 
     private String username;

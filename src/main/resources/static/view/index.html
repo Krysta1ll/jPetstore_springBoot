@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>宠物商店</title>
-    <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen"/>
+    <link rel="StyleSheet" href="../css/mypetstore.css" type="text/css" media="screen"/>
 </head>
 <body>
-<div id="Content">
-    <h2>欢迎浏览我们的宠物商店</h2>
+<div id="Content" style="text-align: center">
 
-    <p><a href="mainForm">点击此处进入商店</a></p>
+    <h2 id="indexH1">欢迎浏览我们的宠物商店</h2>
+<!--    post请求进入主页面-->
+    <form id="indexForm" method="post" action="/mainPage">
+        <input type="submit" style="height: 50px;width: 100px;" value="进入">
+    </form>
 
 
     <p><sub>Copyright Central South University. </sub></p>
