@@ -17,6 +17,6 @@
     </environments>
     <!--    这里要写sql映射-->
     <mappers>
-        <mapper resource="mapper/accountMapper.xml"/>
+        <mapper resource="mapper/AccountMapper.xml"/>
     </mappers>
 </configuration>

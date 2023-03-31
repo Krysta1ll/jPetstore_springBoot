@@ -1,11 +1,15 @@
 package com.example.jpetstore_sb.model;
 
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
+
     private static final long serialVersionUID = 8751282105532159742L;
 
     private String username;
     private String password;
+    private String repeatedPassword;
     private String email;
     private String firstName;
     private String lastName;
@@ -51,6 +55,7 @@ public class Account {
         return firstName;
     }
 
+    //  @Validate(required=true, on={"newAccount", "editAccount"})
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -59,6 +64,7 @@ public class Account {
         return lastName;
     }
 
+    //  @Validate(required=true, on={"newAccount", "editAccount"})
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -166,4 +172,9 @@ public class Account {
     public void setBannerName(String bannerName) {
         this.bannerName = bannerName;
     }
+
+    public String getRepeatedPassword() { return repeatedPassword; }
+
+    public void setRepeatedPassword(String repeatedPassword) { this.repeatedPassword = repeatedPassword; }
+
 }

@@ -20,7 +20,10 @@ public class IndexController {
         return "mainPage";
     }
 
-
+    @RequestMapping("/help")
+    public String help() {
+        return "help";
+    }
 
 
 }

@@ -1,91 +1,66 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>用户注册</title>
-  <link rel="stylesheet" type="text/css" href="../css/jpetstore_register.css">
-  <script src="https://kit.fontawesome.com/59c20db7cc.js" crossorigin="anonymous"></script>
-  <script src="../js/jquery-3.6.2.min.js"></script>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template_head::head('Reigster')">
+
 </head>
+
 <body>
-<h1 class="shop-name">宠物商店</h1>
-<div class="user" id="user">
-  <div class="user-content">
-    <div class="user-title">
-      <h2>用户注册</h2>
-    </div>
-    <form  class="user-form" method="POST" id="registerForm">
-      <div class="position">
-        <div class="user-form-error">
-          <i class="fa-solid fa-circle-exclamation error-icon" id="icon-exclamation"></i>
-          <p class="errormsg" id="errormsg"></p>
-        </div>
-      </div>
-      <div class="user-form-item">
-        <label for="username" class="user-form-label-icon">
-          <i class="fa-solid fa-user"></i>
-        </label>
-        <input type="text" class="user-form-input" name="username" id="username" placeholder="请输入用户名" autocomplete="off">
-        <label for="username" class="user-form-label-icon icon-correct" id="correct_1">
-          <i class="fa-solid fa-check"></i>
-        </label>
-        <label for="username" class="user-form-label-icon icon-error" id="error_1">
-          <i class="fa-solid fa-xmark"></i>
-        </label>
-      </div>
-      <div class="user-form-item">
-        <label for="password" class="user-form-label-icon">
-          <i class="fa-solid fa-lock"></i>
-        </label>
-        <input type="text" class="user-form-input" name="password" id="password" placeholder="请输入密码" autocomplete="off">
-        <label for="password" class="user-form-label-icon icon-correct" id="correct_2">
-          <i class="fa-solid fa-check"></i>
-        </label>
-        <label for="password" class="user-form-label-icon icon-error" id="error_2">
-          <i class="fa-solid fa-xmark"></i>
-        </label>
-      </div>
-      <div class="user-form-item">
-        <label for="repeatPassword" class="user-form-label-icon">
-          <i class="fa-solid fa-lock"></i>
-        </label>
-        <input type="text" class="user-form-input" name="repeatPassword" id="repeatPassword" placeholder="请再次输入密码" autocomplete="off">
-        <label for="repeatPassword" class="user-form-label-icon icon-correct" id="correct_3">
-          <i class="fa-solid fa-check"></i>
-        </label>
-        <label for="repeatPassword" class="user-form-label-icon icon-error" id="error_3">
-          <i class="fa-solid fa-xmark"></i>
-        </label>
-      </div>
-      <div class="user-form-item">
-        <label for="email" class="user-form-label-icon">
-          <i class="fa-solid fa-user"></i>
-        </label>
-        <input type="text" class="user-form-input" name="email" id="email" placeholder="请输入用户邮箱" autocomplete="off">
-        <label for="email" class="user-form-label-icon icon-correct" id="correct_4">
-          <i class="fa-solid fa-check"></i>
-        </label>
-        <label for="email" class="user-form-label-icon icon-error" id="error_4">
-          <i class="fa-solid fa-xmark"></i>
-        </label>
-      </div>
-      <div class="user-form-item">
-        <label class="user-form-label-icon">
-          <i class="fa-solid fa-square-check"></i>
-        </label>
-        <input type="text" class="user-form-input" style="width: 150px;" name="vcode" id="vcode" placeholder="请输入验证码 " autocomplete="off " />
-        <input type="button" id="btnGetVcode" class="user-form-button" style="cursor:pointer" value="获取验证码">
-      </div>
-      <div class="user-form-item">
-        <input type="submit" value="注册" class="user-form-submit-register">
-      </div>
-      <div class="user-form-link-register">
-        <a href="loginForm" class="link">去登录>></a>
-      </div>
+<header th:replace="template_menu::header">
+</header>
+
+<div id="Content">
+  <div id="Catalog">
+    <a href="/account/register?lang=en_US" > English</a>
+    <a href="/account/register?lang=zh_CN" > 中文</a>
+    <form action="/account/register" method="post" name="registerForm" onsubmit="return validate()">
+      <h3 th:text="用户信息">User Information</h3>
+
+      <table>
+        <tr>
+          <td th:text="用户名">User ID:</td>
+          <td>
+            <input type="text" id="username" name="username" onblur="usernameIsExist()"/>
+            <div id="usernameMsg"></div>
+          </td>
+        </tr>
+        <tr>
+          <td  th:text="密码">New password:</td>
+          <td><input type="password" id="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td th:text="重复密码">Repeat password:</td>
+          <td><input type="password" name="repeatedPassword" /></td>
+        </tr>
+        <tr>
+          <td th:text="验证码">
+            Verification code:
+          </td>
+          <td>
+            <!-- 验证码-->
+            <input type="text" class="topAlign" id="verify" name="verify" />
+            <canvas width="100" height="40" id="verifyCanvas"></canvas>
+            <img id="code_img">
+            <div id="validateMsg" style="color: red"></div>
+          </td>
+        </tr>
+      </table>
+
+      <table th:replace="includeAccountFields::accountTable"></table>
+      <h3 th:replace="includeAccountFields::h3"></h3>
+      <table th:replace="includeAccountFields::profileTable"></table>
+
+      <input type="submit" th:value="提交">
+
     </form>
   </div>
 </div>
-<script src="../js/register.js"></script>
+
+<footer th:replace="template_menu::footer">
+</footer>
+
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/register.js"></script>
+<script type="text/javascript" src="../js/Verification.js"></script>
 </body>
 
 </html>

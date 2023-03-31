@@ -1,89 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="" lang="en">
-<head>
-    <link rel="StyleSheet" href="../css/mypetstore.css" type="text/css" media="screen" />
-    <script src="../js/jquery-3.6.2.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
-    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-    <link href="../css/style.css" type="text/css" rel="stylesheet" media="all">
-
-    <link rel="stylesheet" type="text/css" href="../css/zoomslider.css"/>
-
-    <link type="text/css" rel="stylesheet" href="../css/cm-overlay.css"/>
-
-
-    <script src="../js/jquery-2.2.3.min.js"></script>
-    <script type="text/javascript" src="../js/numscroller-1.0.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <link href="../css/font-awesome.css" rel="stylesheet">
-
-    <link href="//fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-
-    <link href="//fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400,500,600,700,800" rel="stylesheet">
-    <title>欢迎光临宠物商店</title>
+<head th:replace="template_head::head('welcome')">
 </head>
 
 
 <body>
-<div id="Header">
 
-    <div id="Logo" style="height: 70px">
-        <div id="LogoContent">
-            <a th:href="@{mainPage}"><img src="../images/logo-topbar.gif" /></a>
-        </div>
-    </div>
-    <div id="Menu" style="height: 70px;">
-        <div id="MenuContent">
-            <a href="cartForm"><img align="middle" name="img_cart" src="../images/cart.gif"  /></a>
-            <img align="middle" src="../images/separator.gif" />
-            <th:if test="${sessionScope.loginAccount == null}">
-                <div th:if="sessionScope.loginAccount == null">
-                <a th:href="@{register}">Sign In</a>
-        </div>
-                <img align="middle" src="../images/separator.gif" />
-            </th:if>
-
-            <c:if test="${sessionScope.loginAccount != null}">
-                <a href="LogOut">Sign Out</a>
-                <img align="middle" src="../images/separator.gif" />
-                <a href="pageContext.request.contextPathmyAccountForm"> My Account ${sessionScope.loginAccount.username}</a>
-                <img align="middle" src="../images/separator.gif" />
-            </c:if>
-            <a href="help.html">?</a>
-        </div>
-    </div>
-
-    <div id="Search" style="height: 70px;">
-        <div id="SearchContent">
-            <div id="position">
-                <form action="searchForm" method="post">
-                    <input type="text" name="keyword" size="14" id="keyword" class="search">
-                    <input type="submit" value="搜索" style="cursor: pointer">
-                    <span style="color: red; font-size: small; ">${requestScope.searchErrorMsg}</span>
-                </form>
-                <div id="AutoSearchComplete">
-                    <ul id="autoProductList">
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div id="QuickLinks">
-        <a href="categoryForm?categoryId=FISH"><img src="../images/sm_fish.gif" /></a>
-        <img src="../images/separator.gif" />
-        <a href="categoryForm?categoryId=DOGS"><img src="../images/sm_dogs.gif" /></a>
-        <img src="../images/separator.gif" />
-        <a href="categoryForm?categoryId=REPTILES"><img src="../images/sm_reptiles.gif" /></a>
-        <img src="../images/separator.gif" />
-        <a href="categoryForm?categoryId=CATS"><img src="../images/sm_cats.gif" /></a>
-        <img src="../images/separator.gif" />
-        <a href="categoryForm?categoryId=BIRDS"><img src="../images/sm_birds.gif" /></a>
-    </div>
-
-</div>
+<header th:replace="template_menu::header">
+</header>
 
 <div id="Main">
 
