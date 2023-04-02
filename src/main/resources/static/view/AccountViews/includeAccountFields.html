@@ -4,56 +4,56 @@
 
     <table th:fragment="accountTable">
         <tr>
-            <td th:text="#{firstName}">First name:</td>
+            <td th:text="您的名字">First name:</td>
             <td>
                 <input type="text" name="firstName" th:value="${session.account?.firstName} ?:''"/>
             </td>
         </tr>
         <tr>
-            <td th:text="#{lastName}">Last name:</td>
+            <td th:text="您的姓氏">Last name:</td>
             <td>
                 <input type="text" name="lastName" th:value="${session.account?.lastName} ?:''"/>
             </td>
         </tr>
         <tr>
-            <td th:text="#{email}">Email:</td>
+            <td th:text="您的邮箱">Email:</td>
             <td><input type="text" size="40" name="email" th:value="${session.account?.email} ?:''"/></td>
         </tr>
         <tr>
-            <td th:text="#{phone}">Phone:</td>
+            <td th:text="手机号">Phone:</td>
             <td><input type="text" name="phone" th:value="${session.account?.phone} ?:''"/></td>
         </tr>
         <tr>
-            <td th:text="#{address1}">Address 1:</td>
+            <td th:text="首要地址">Address 1:</td>
             <td><input type="text" size="40" name="address1" th:value="${session.account?.address1} ?:''"/></td>
         </tr>
         <tr>
-            <td th:text="#{address2}">Address 2:</td>
+            <td th:text="次要地址">Address 2:</td>
             <td><input type="text" size="40" name="address2" th:value="${session.account?.address2} ?:''"/></td>
         </tr>
         <tr>
-            <td th:text="#{city}">City:</td>
+            <td th:text="城市">City:</td>
             <td><input type="text" name="city" th:value="${session.account?.city} ?:''"/></td>
         </tr>
         <tr>
-            <td th:text="#{state}">State:</td>
+            <td th:text="州县">State:</td>
             <td><input type="text" size="4" name="state" th:value="${session.account?.state} ?:''"/></td>
         </tr>
         <tr>
-            <td th:text="#{zip}">Zip:</td>
+            <td th:text="地区码">Zip:</td>
             <td><input type="text" size="10" name="zip" th:value="${session.account?.zip} ?:''"/></td>
         </tr>
         <tr>
-            <td th:text="#{country}">Country:</td>
+            <td th:text="地区">Country:</td>
             <td><input type="text" size="15" name="country" th:value="${session.account?.country} ?:''"/></td>
         </tr>
     </table>
 
-    <h3 th:fragment="h3" th:text="#{profile}">Profile Information</h3>
+    <h3 th:fragment="h3" th:text="个人信息">Profile Information</h3>
 
     <table th:fragment="profileTable">
         <tr>
-            <td th:text="#{language}">Language Preference:</td>
+            <td th:text="语言偏好">Language Preference:</td>
             <td>
                 <select name="languagePreference" id="languagePreference">
                     <option th:each="languages:${session.languages}" th:text="${languages}">${languages}</option>
@@ -61,7 +61,7 @@
             </td>
         </tr>
         <tr>
-            <td th:text="#{category}">Favourite Category:</td>
+            <td th:text="分类">Favourite Category:</td>
             <td>
                 <select name="favouriteCategoryId" id="favouriteCategoryId">
                     <option th:each="categories:${session.categories}" th:text="${categories}">${categories}</option>
@@ -69,11 +69,11 @@
             </td>
         </tr>
         <tr>
-            <td th:text="#{myList}">Enable MyList</td>
+            <td th:text="激活我的列表">Enable MyList</td>
             <td><input type="checkbox" name="listOption" /></td>
         </tr>
         <tr>
-            <td th:text="#{myBanner}">Enable MyBanner</td>
+            <td th:text="激活我的黑名单">Enable MyBanner</td>
             <td><input type="checkbox" name="bannerOption" /></td>
         </tr>
 

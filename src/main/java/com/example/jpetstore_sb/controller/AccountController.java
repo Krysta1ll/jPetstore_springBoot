@@ -10,10 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -24,17 +22,20 @@ import java.util.List;
     @SessionAttributes({"account"})
     public class AccountController {
 
-        @Autowired
-        private AccountService accountService;
+        private final AccountService accountService;
 
         // 输出日志
         private final Logger logger = LoggerFactory.getLogger(AccountController.class);
+
+        public AccountController(AccountService accountService) {
+            this.accountService = accountService;
+        }
 
         // 前往登录界面
         @GetMapping("/account/viewLoginForm")
         public String viewLoginForm(){
             logger.info("进入登录界面");
-            return "login";
+            return "AccountViews/login";
         }
 
         // 登录处理
@@ -52,12 +53,12 @@ import java.util.List;
                 session.setAttribute("account",account);
                 model.addAttribute("account",account);
                 logger.info(account.getUsername()+"登录成功");
-                return "mainPage";
+                return "StoreViews/mainPage";
             }else{
                 // 清空
                 model.addAttribute("account",account);
                 logger.info("登录失败");
-                return "login";
+                return "AccountViews/login";
             }
 
         }
@@ -74,7 +75,7 @@ import java.util.List;
 
             session.setAttribute("account",account);
             model.addAttribute("account",account);
-            return "mainPage";
+            return "StoreViews/mainPage";
         }
 
         // 跳往注册界面
@@ -95,7 +96,7 @@ import java.util.List;
             categories.add("BIRDS");
             session.setAttribute("categories",categories);
 
-            return "register";
+            return "AccountViews/register";
         }
 
         // 进行注册
@@ -113,7 +114,7 @@ import java.util.List;
                         Account t = null;
                         model.addAttribute("account",t);
                         logger.info("注册成功");
-                        return "login";
+                        return "AccountViews/login";
                     }
                 }
 
@@ -123,7 +124,7 @@ import java.util.List;
             Account t = null;
             model.addAttribute("account",t);
             logger.info("注册失败");
-            return "register";
+            return "AccountViews/register";
         }
 
         // 更改用户信息
@@ -143,7 +144,7 @@ import java.util.List;
             categories.add("BIRDS");
             session.setAttribute("categories",categories);
 
-            return "account/editAccount";
+            return "AccountViews/editAccount";
         }
 
         // 确认修改用户信息
@@ -155,10 +156,10 @@ import java.util.List;
                 session.setAttribute("account",account);
                 model.addAttribute("account",account);
 
-                return "catalog/main";
+                return "AccountViews/mainPage";
             }else{
                 logger.info("确认修改用户信息");
-                return "account/editAccount";
+                return "AccountViews/editAccount";
             }
 
         }

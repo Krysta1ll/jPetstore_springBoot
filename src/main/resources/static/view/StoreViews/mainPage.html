@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="" lang="en">
-<head th:replace="template_head::head('welcome')">
+
+<head th:replace="Common/template_head::head('welcome')">
+
 </head>
 
 
 <body>
 
-<header th:replace="template_menu::header">
+<header th:replace="Common/template_menu::header">
 </header>
 
 <div id="Main">
@@ -16,7 +18,7 @@
     <h3 class="w3ls-title">
         <span>J</span>PetStore</h3>
 <hr>
-    <link rel="stylesheet" href="../css/swiper.css"/>
+    <link rel="stylesheet" href="../../css/swiper.css"/>
    <center>
         <div class="swiper" id="swiper" style="text-align: center">
             <input type="radio" name="btn" id="btn1" checked class="radios"/>
@@ -34,13 +36,13 @@
             <label for="btn6"></label>
             <label for="btn7"></label>
             <ul>
-                <li><img src="../images/1.jpg" alt="" style="border: 3px #0c0d0d;"/></li>
-                <li><img src="../images/2.jpg" alt=""/></li>
-                <li><img src="../images/3.jpg" alt=""/></li>
-                <li><img src="../images/4.jpg" alt=""/></li>
-                <li><img src="../images/5.jpg" alt=""/></li>
-                <li><img src="../images/6.jpg" alt=""/></li>
-                <li><img src="../images/7.jpg" alt=""/></li>
+                <li><img src="../../images/1.jpg" alt="" style="border: 3px #0c0d0d;"/></li>
+                <li><img src="../../images/2.jpg" alt=""/></li>
+                <li><img src="../../images/3.jpg" alt=""/></li>
+                <li><img src="../../images/4.jpg" alt=""/></li>
+                <li><img src="../../images/5.jpg" alt=""/></li>
+                <li><img src="../../images/6.jpg" alt=""/></li>
+                <li><img src="../../images/7.jpg" alt=""/></li>
             </ul>
         </div>
    </center>
@@ -78,7 +80,7 @@
                                 <a href="categoryForm?categoryId=CATS">
                                     <div class="serviceinfo_agile ih-item circle colored effect17">
                                         <div class="img">
-                                            <img src="../images/cat1.gif" class="img-responsive" alt="img">
+                                            <img src="../../images/cat1.gif" class="img-responsive" alt="img">
                                         </div>
                                         <div class="info">
                                             <p>cat</p>
@@ -90,7 +92,7 @@
                                 <a href="categoryForm?categoryId=Dogs">
                                     <div class="serviceinfo_agile ih-item circle colored effect17">
                                         <div class="img">
-                                            <img src="../images/dog1.gif" class="img-responsive" alt="img">
+                                            <img src="../../images/dog1.gif" class="img-responsive" alt="img">
                                         </div>
                                         <div class="info">
                                             <p>dog</p>
@@ -102,7 +104,7 @@
                                 <a href="categoryForm?categoryId=BIRDS">
                                     <div class="serviceinfo_agile ih-item circle colored effect17">
                                         <div class="img">
-                                            <img src="../images/bird1.gif" class="img-responsive" alt="img">
+                                            <img src="../../images/bird1.gif" class="img-responsive" alt="img">
                                         </div>
                                         <div class="info">
                                             <p>birds</p>
@@ -114,7 +116,7 @@
                                 <a href="categoryForm?categoryId=Fish">
                                     <div class="serviceinfo_agile ih-item circle colored effect17">
                                         <div class="img">
-                                            <img src="../images/fish1.gif" class="img-responsive" alt="img">
+                                            <img src="../../images/fish1.gif" class="img-responsive" alt="img">
                                         </div>
                                         <div class="info">
                                             <p>fish</p>
@@ -146,15 +148,15 @@
     <div id="Sidebar">
 
         <div id="SidebarContent" style="margin-left: 280px">
-            <a href="categoryForm?categoryId=Fish"><img src="../images/fish_icon.gif"/></a><br/>
+            <a href="categoryForm?categoryId=Fish"><img src="../../images/fish_icon.gif"/></a><br/>
             Saltwater, Freshwater <br/>
-            <a href="categoryForm?categoryId=Dogs"><img src="../images/dogs_icon.gif"/></a><br/>
+            <a href="categoryForm?categoryId=Dogs"><img src="../../images/dogs_icon.gif"/></a><br/>
             Various Breeds <br/>
-            <a href="categoryForm?categoryId=CATS"><img src="../images/cats_icon.gif"/></a><br/>
+            <a href="categoryForm?categoryId=CATS"><img src="../../images/cats_icon.gif"/></a><br/>
             Various Breeds, Exotic Varieties <br/>
-            <a href="categoryForm?categoryId=REPTILES"><img src="../images/reptiles_icon.gif"/></a><br/>
+            <a href="categoryForm?categoryId=REPTILES"><img src="../../images/reptiles_icon.gif"/></a><br/>
             Lizards, Turtles, Snakes <br/>
-            <a href="categoryForm?categoryId=BIRDS"><img src="../images/birds_icon.gif"/></a><br/>
+            <a href="categoryForm?categoryId=BIRDS"><img src="../../images/birds_icon.gif"/></a><br/>
             Exotic Varieties
         </div>
     </div>
@@ -198,7 +200,7 @@ AV-CB-01         Amazon Parrot
 AV-SB-02         Finch"
                       href="categoryForm?viewCategory=&categoryId=BIRDS" shape="RECT"/>
             </map>
-            <img height="355" src="../images/splash.gif" align="right"
+            <img height="355" src="../../images/splash.gif" align="right"
                  usemap="#estoremap" width="350"/>
         </div>
     </div>
@@ -214,7 +216,7 @@ AV-SB-02         Finch"
                     <div id="owl-demo" class="owl-carousel">
                         <div class="item-owl">
                             <div class="col-md-3 col-sm-3 col-xs-3 img-agile">
-                                <img src="../images/s1.jpg" class="img-responsive" alt=""/>
+                                <img src="../../images/s1.jpg" class="img-responsive" alt=""/>
                                 <h6>小美</h6>
                             </div>
                             <div class="col-md-9 col-sm-9 col-xs-9 test-review test-tooltip1">
@@ -232,7 +234,7 @@ AV-SB-02         Finch"
                         -------------------------------------
                         <div class="item-owl">
                         <div class="col-md-3 col-sm-3 col-xs-3 img-agile">
-                            <img src="../images/s2.jpg" class="img-responsive" alt=""/>
+                            <img src="../../images/s2.jpg" class="img-responsive" alt=""/>
                             <h6>小红</h6>
                         </div>
                         <div class="col-md-9 col-sm-9 col-xs-9 test-review test-tooltip1">

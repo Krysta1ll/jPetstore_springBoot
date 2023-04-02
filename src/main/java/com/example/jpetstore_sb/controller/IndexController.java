@@ -17,12 +17,12 @@ public class IndexController {
 
     @RequestMapping ("/mainPage")
     public String mainPage() {
-        return "mainPage";
+        return "StoreViews/mainPage";
     }
 
     @RequestMapping("/help")
     public String help() {
-        return "help";
+        return "OtherViews/help";
     }
 
 

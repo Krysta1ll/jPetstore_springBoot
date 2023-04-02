@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="template_head::head('Login')">
+<head th:replace="Common/template_head::head('Login')">
 
 </head>
 
 <body>
 
-    <header th:replace="template_menu::header">
+    <header th:replace="Common/template_menu::header">
     </header>
 
     <div id="Content">
@@ -40,10 +40,10 @@
         </div>
     </div>
 
-    <footer th:replace="template_menu::footer">
+    <footer th:replace="Common/template_menu::footer">
     </footer>
 
-    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="../js/Verification.js"></script>
+    <script type="text/javascript" src="../../js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../js/Verification.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <header th:fragment="header">
         <div id="Logo" style="height: 70px">
             <div id="LogoContent">
-                <a th:href="@{mainPage}"><img src="/images/logo-topbar.gif" /></a>
+                <a href="/mainPage"><img src="/images/logo-topbar.gif" /></a>
             </div>
         </div>
 
@@ -28,9 +28,13 @@
                 </a>
 
                 <img align="middle" src="/images/separator.gif" />
-                <a th:href="@{help}">
+                <a href="/help">
                     ?
                 </a>
+
+                <img align="middle" src="/images/separator.gif" />
+                <a th:if="${session.account!=null}" th:text="'欢迎您，用户 '+${session.account.getUsername()}">
+                    我的订单</a>
             </div>
         </div>
 

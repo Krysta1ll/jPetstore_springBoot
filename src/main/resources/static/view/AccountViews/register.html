@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="template_head::head('Reigster')">
+<head th:replace="Common/template_head::head('Reigster')">
 
 </head>
 
 <body>
-<header th:replace="template_menu::header">
+<header th:replace="Common/template_menu::header">
 </header>
 
 <div id="Content">
   <div id="Catalog">
-    <a href="/account/register?lang=en_US" > English</a>
-    <a href="/account/register?lang=zh_CN" > 中文</a>
     <form action="/account/register" method="post" name="registerForm" onsubmit="return validate()">
       <h3 th:text="用户信息">User Information</h3>
 
@@ -45,9 +43,9 @@
         </tr>
       </table>
 
-      <table th:replace="includeAccountFields::accountTable"></table>
-      <h3 th:replace="includeAccountFields::h3"></h3>
-      <table th:replace="includeAccountFields::profileTable"></table>
+      <table th:replace="AccountViews/includeAccountFields::accountTable"></table>
+      <h3 th:replace="AccountViews/includeAccountFields::h3"></h3>
+      <table th:replace="AccountViews/includeAccountFields::profileTable"></table>
 
       <input type="submit" th:value="提交">
 
@@ -55,12 +53,12 @@
   </div>
 </div>
 
-<footer th:replace="template_menu::footer">
+<footer th:replace="Common/template_menu::footer">
 </footer>
 
-<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="../js/register.js"></script>
-<script type="text/javascript" src="../js/Verification.js"></script>
+<script type="text/javascript" src="../../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../js/register.js"></script>
+<script type="text/javascript" src="../../js/Verification.js"></script>
 </body>
 
 </html>
