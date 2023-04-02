@@ -22,7 +22,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 
 @Controller
-@SessionAttributes("cart")
+@SessionAttributes({"cart","account"})
 public class CartController {
 
     //日志
@@ -41,7 +41,7 @@ public class CartController {
         if(workingItemId != null){
             Cart cart = (Cart) session.getAttribute("cart");
 
-            // 如果购物车为空
+
             if(cart == null || cart.getNumberOfItems() == 0){
                 cart = new Cart();
             }
@@ -62,12 +62,18 @@ public class CartController {
         return "StoreViews/cart";
     }
 
-    // 跳往购物车
-    @GetMapping("/cart/viewCart")
-    public String viewCart(HttpSession session,Model model){
-//        logger.debug("log..."); // 输出DEBUG级别的日志
-        Cart cart = (Cart) session.getAttribute("cart");
 
+//    @GetMapping("/cart/viewCart")
+//    public String viewCart(){
+//
+//
+//        return "StoreViews/cart";
+//    }
+
+    @GetMapping("/cart/viewCart")
+    public String viewCart(Model model,HttpSession session){
+
+        Cart cart = (Cart) session.getAttribute("cart");
         if(cart == null){
             cart = new Cart();
         }
@@ -79,10 +85,8 @@ public class CartController {
     }
 
     // 从购物车中去掉商品
-    // GetMapping 里面不允许相同的值，先随便写一个，可行
     @GetMapping("/cart/removeItemFromCart")
     public String removeItemFromCart(@RequestParam("workingItemId") String workingItemId, HttpSession session, Model model){
-//        logger.debug("log..."); // 输出DEBUG级别的日志
         Cart cart = (Cart) session.getAttribute("cart");
 
         Item item = cart.removeItemById(workingItemId);
@@ -101,7 +105,6 @@ public class CartController {
     // AJAX,去掉商品
     @GetMapping("/cart/removeAJAX")
     public String removeAJAX(@RequestParam("workingItemId") String workingItemId, HttpSession session, HttpServletResponse response , Model model){
-//        logger.debug("log..."); // 输出DEBUG级别的日志
         Cart cart = (Cart) session.getAttribute("cart");
 
         Item item = cart.removeItemById(workingItemId);
