@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="~{Common/template_head::head('Admin Register')}">
+</head>
+
+
+
+<body>
+<header th:replace="~{Common/template_menu_admin::header}">
+</header>
+
+<h1 class="shop-name">后台管理系统</h1>
+<div class="user" id="user">
+  <div class="user-content">
+    <div class="user-title">
+      <h2>用户注册</h2>
+    </div>
+
+    <form action="/admin/registerCheck" class="user-form" method="POST" name="adminRegister">
+      <div class="position">
+        <div class="user-form-error">
+          <i class="fa-solid fa-circle-exclamation error-icon" id="icon-exclamation"></i>
+          <p class="errormsg" id="errormsg"></p>
+        </div>
+      </div>
+      <div class="user-form-item">
+        <label for="username" class="user-form-label-icon">
+          <i class="fa-solid fa-user"></i>
+        </label>
+        <input type="text" class="user-form-input" name="username" id="username" placeholder="请输入用户名" autocomplete="off">
+        <label for="username" class="user-form-label-icon icon-correct" id="correct_1">
+          <i class="fa-solid fa-check"></i>
+        </label>
+        <label for="username" class="user-form-label-icon icon-error" id="error_1">
+          <i class="fa-solid fa-xmark"></i>
+        </label>
+      </div>
+      <div class="user-form-item">
+        <label for="password" class="user-form-label-icon">
+          <i class="fa-solid fa-lock"></i>
+        </label>
+        <input type="text" class="user-form-input" name="password" id="password" placeholder="请输入密码" autocomplete="off">
+        <label for="password" class="user-form-label-icon icon-correct" id="correct_2">
+          <i class="fa-solid fa-check"></i>
+        </label>
+        <label for="password" class="user-form-label-icon icon-error" id="error_2">
+          <i class="fa-solid fa-xmark"></i>
+        </label>
+      </div>
+      <div class="user-form-item">
+        <label for="repeatPassword" class="user-form-label-icon">
+          <i class="fa-solid fa-lock"></i>
+        </label>
+        <input type="text" class="user-form-input" name="repeatPassword" id="repeatPassword" placeholder="请再次输入密码" autocomplete="off">
+        <label for="repeatPassword" class="user-form-label-icon icon-correct" id="correct_3">
+          <i class="fa-solid fa-check"></i>
+        </label>
+        <label for="repeatPassword" class="user-form-label-icon icon-error" id="error_3">
+          <i class="fa-solid fa-xmark"></i>
+        </label>
+      </div>
+      <div class="user-form-item">
+        <label for="email" class="user-form-label-icon">
+          <i class="fa-solid fa-user"></i>
+        </label>
+        <input type="text" class="user-form-input" name="email" id="email" placeholder="请输入用户邮箱" autocomplete="off">
+        <label for="email" class="user-form-label-icon icon-correct" id="correct_4">
+          <i class="fa-solid fa-check"></i>
+        </label>
+        <label for="email" class="user-form-label-icon icon-error" id="error_4">
+          <i class="fa-solid fa-xmark"></i>
+        </label>
+      </div>
+      <div class="user-form-item">
+        <input type="submit" value="注册" class="user-form-submit-register">
+      </div>
+      <div class="user-form-link-register">
+        <a th:href="@{adminLogin}" class="link">去登录</a>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/js/adminRegister.js"></script>
+</body>
+
+</html>
