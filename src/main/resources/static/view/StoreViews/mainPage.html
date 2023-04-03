@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="" lang="en">
 
-<head th:replace="Common/template_head::head('welcome')">
+<head th:replace="~{Common/template_head::head('welcome')}">
 
 </head>
 
 
 <body>
 
-<header th:replace="Common/template_menu::header">
+<header th:replace="~{Common/template_menu::header}">
 </header>
 
 <div id="Main">
 
 
     <hr>
-    <h3 class="w3ls-title">
+    <h3 class="w3ls-title" >
         <span>J</span>PetStore</h3>
 <hr>
     <link rel="stylesheet" href="../../css/swiper.css"/>
@@ -77,7 +77,7 @@
                     <div class="services_agile" id="services">
                         <div class="services-top">
                             <div class="col-md-3 col-sm-4 col-xs-4 service_grid text-center">
-                                <a href="categoryForm?categoryId=CATS">
+                                <a href="catalog/category?categoryId=CATS">
                                     <div class="serviceinfo_agile ih-item circle colored effect17">
                                         <div class="img">
                                             <img src="../../images/cat1.gif" class="img-responsive" alt="img">
@@ -89,7 +89,7 @@
                                 </a>
                             </div>
                             <div class="col-md-3 col-sm-4 col-xs-4 service_grid text-center">
-                                <a href="categoryForm?categoryId=Dogs">
+                                <a href="catalog/category?categoryId=Dogs">
                                     <div class="serviceinfo_agile ih-item circle colored effect17">
                                         <div class="img">
                                             <img src="../../images/dog1.gif" class="img-responsive" alt="img">
@@ -101,7 +101,7 @@
                                 </a>
                             </div>
                             <div class="col-md-3 col-sm-4 col-xs-4 service_grid text-center">
-                                <a href="categoryForm?categoryId=BIRDS">
+                                <a href="catalog/category?categoryId=BIRDS">
                                     <div class="serviceinfo_agile ih-item circle colored effect17">
                                         <div class="img">
                                             <img src="../../images/bird1.gif" class="img-responsive" alt="img">
@@ -113,7 +113,7 @@
                                 </a>
                             </div>
                             <div class="col-md-3 col-sm-4 col-xs-4 service_grid text-center">
-                                <a href="categoryForm?categoryId=Fish">
+                                <a href="catalog/category?categoryId=Fish">
                                     <div class="serviceinfo_agile ih-item circle colored effect17">
                                         <div class="img">
                                             <img src="../../images/fish1.gif" class="img-responsive" alt="img">
@@ -148,15 +148,15 @@
     <div id="Sidebar">
 
         <div id="SidebarContent" style="margin-left: 280px">
-            <a href="categoryForm?categoryId=Fish"><img src="../../images/fish_icon.gif"/></a><br/>
+            <a href="catalog/category?categoryId=Fish"><img src="../../images/fish_icon.gif"/></a><br/>
             Saltwater, Freshwater <br/>
-            <a href="categoryForm?categoryId=Dogs"><img src="../../images/dogs_icon.gif"/></a><br/>
+            <a href="catalog/category?categoryId=Dogs"><img src="../../images/dogs_icon.gif"/></a><br/>
             Various Breeds <br/>
-            <a href="categoryForm?categoryId=CATS"><img src="../../images/cats_icon.gif"/></a><br/>
+            <a href="catalog/category?categoryId=CATS"><img src="../../images/cats_icon.gif"/></a><br/>
             Various Breeds, Exotic Varieties <br/>
-            <a href="categoryForm?categoryId=REPTILES"><img src="../../images/reptiles_icon.gif"/></a><br/>
+            <a href="catalog/category?categoryId=REPTILES"><img src="../../images/reptiles_icon.gif"/></a><br/>
             Lizards, Turtles, Snakes <br/>
-            <a href="categoryForm?categoryId=BIRDS"><img src="../../images/birds_icon.gif"/></a><br/>
+            <a href="catalog/category?categoryId=BIRDS"><img src="../../images/birds_icon.gif"/></a><br/>
             Exotic Varieties
         </div>
     </div>
@@ -167,14 +167,14 @@
                       title="Product ID       Name
 AV-CB-01         Amazon Parrot
 AV-SB-02         Finch"
-                      href="categoryForm?viewCategory=&categoryId=BIRDS" shape="RECT"/>
+                      href="catalog/category?viewCategory=&categoryId=BIRDS" shape="RECT"/>
                 <area alt="Fish" coords="2,180,72,250"
                       title="Product ID       Name
 FI-FW-01         Koi
 FI-FW-02         Goldfish
 FI-SW-01         Angelfish
 FI-SW-02         Tiger Shark"
-                      href="categoryForm?viewCategory=&categoryId=FISH" shape="RECT"/>
+                      href="catalog/category?viewCategory=&categoryId=FISH" shape="RECT"/>
                 <area alt="Dogs" coords="60,250,130,320"
                       title="Product ID       Name
 K9-BD-01         Bulldog

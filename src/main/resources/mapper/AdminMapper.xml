@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.jpetstore_sb.mapper.AdminMapper">
+
+    <cache />
+
+<select id="getAdminByUsername" parameterType="java.lang.String" resultType="com.example.jpetstore_sb.model.Admin">
+ SELECT username, password, email
+FROM admin
+WHERE username = #{username}
+</select>
+
+
+    <select id="getAdminByMailAndPassword" parameterType="com.example.jpetstore_sb.model.Admin" resultType="com.example.jpetstore_sb.model.Admin">
+        SELECT username, password, email
+        FROM admin
+        WHERE email = #{email} AND password = #{password}
+    </select>
+
+
+    <insert id="insertAdmin" parameterType="com.example.jpetstore_sb.model.Admin">
+        INSERT INTO ADMIN (username, password, email)
+        VALUES (#{username}, #{password}, #{email})
+    </insert>
+
+    <insert id="updateAdmin" parameterType="com.example.jpetstore_sb.model.Admin">
+        UPDATE admin
+        SET password = #{password}, email = #{email}
+        WHERE username = #{username}
+    </insert>
+</mapper>

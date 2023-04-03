@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@SessionAttributes({"product", "cart","account"})
+@SessionAttributes({"product", "cart","account","category"})
 public class CatalogController {
 
     private final CatalogService catalogService;

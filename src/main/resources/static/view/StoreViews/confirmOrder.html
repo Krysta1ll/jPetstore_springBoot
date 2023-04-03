@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="Common/template_head::head('confirmOrder')">
+<head th:replace="~{Common/template_head::head('confirmOrder')}">
 
 </head>
 <body>
-<header th:replace="Common/template_menu::header">
+<header th:replace="~{Common/template_menu::header}">
 </header>
 
 <div id="Content">
@@ -131,7 +131,7 @@
 
         </table>
 
-        <a href="/StoreViews/confirmOrder">
+        <a href="/order/confirmOrder">
             <input type="submit" name="confirmed" value="confirmed">
         </a>
     </div>

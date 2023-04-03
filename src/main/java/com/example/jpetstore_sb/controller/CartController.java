@@ -9,10 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +19,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 
 @Controller
-@SessionAttributes({"cart","account"})
+
 public class CartController {
 
     //日志
@@ -71,16 +68,14 @@ public class CartController {
 //    }
 
     @GetMapping("/cart/viewCart")
-    public String viewCart(Model model,HttpSession session){
+    public String viewCart(HttpSession session, Model model){
 
         Cart cart = (Cart) session.getAttribute("cart");
         if(cart == null){
             cart = new Cart();
         }
-
         session.setAttribute("cart",cart);
         model.addAttribute("cart",cart);
-
         return "StoreViews/cart";
     }
 

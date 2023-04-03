@@ -1,13 +1,13 @@
 package com.example.jpetstore_sb.model;
 
 
-import java.io.Serial;
+
 import java.io.Serializable;
 
 // Category: 类别
 public class Category implements Serializable {
 
-    @Serial
+
     private static final long serialVersionUID = 3992469837058393712L;
 
     private String categoryId;
