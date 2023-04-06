@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import com.example.jpetstore_sb.model.Account;
 import com.example.jpetstore_sb.service.AccountService;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,8 @@ import java.util.List;
                 logger.info("登录失败");
                 return "AccountViews/login";
             }
+
+
 
         }
 
@@ -194,6 +197,15 @@ import java.util.List;
             }
 
         }
+           @ResponseBody
+           @GetMapping("/test")
+        public List<Account> test(){
+            List<Account> test = accountService.getAll();
+
+
+            return test;
+           }
+
 
 
     }

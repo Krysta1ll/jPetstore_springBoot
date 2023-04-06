@@ -30,4 +30,6 @@ public interface AccountMapper {
 
     // 更新用户的登录信息
     void updateSignon(Account account);
+
+    List<Account> getAll();
 }

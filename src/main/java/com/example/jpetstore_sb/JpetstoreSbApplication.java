@@ -15,4 +15,5 @@ public class JpetstoreSbApplication {
         SpringApplication.run(JpetstoreSbApplication.class, args);
     }
 
+
 }

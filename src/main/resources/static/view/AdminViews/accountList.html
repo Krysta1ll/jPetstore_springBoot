@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>table模块快速使用</title>
+    <link rel="stylesheet" href="/css/layui.css" media="all">
+    <!-- 引入的css文件  -->
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/js/bootstrap-table.min.css"
+          rel="stylesheet">
+    <!-- 引入的js文件 -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap-table.min.js"></script>
+    <script src="/js/bootstrap-table-zh-CN.js"></script>
+    <script src="/js/xadmin.js"></script>
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/xadmin.css">
+    <script src="/lib/layui/layui.js" charset="utf-8"></script>
+
+</head>
+<body>
+<table id="mytab" class="table table-hover"></table>
+<script>
+    $('#mytab').bootstrapTable({
+        method : 'get',
+        url : "/getCustomerList",//请求路径
+        striped : true, //是否显示行间隔色
+        pageNumber : 1, //初始化加载第一页
+        pagination : true,//是否分页
+        sidePagination : 'client',//server:服务器端分页|client：前端分页
+        pageSize : 5,//单页记录数
+        pageList : [ 5, 10, 20, 30 ],//可选择单页记录数
+        showRefresh : true,//刷新按钮
+        queryParams : function(params) {//上传服务器的参数
+            var temp = {//如果是在服务器端实现分页，limit、offset这两个参数是必须的
+                limit : params.limit, // 每页显示数量
+                offset : params.offset, // SQL语句起始索引
+                //page : (params.offset / params.limit) + 1, //当前页码
+
+                username : $('#search_name').val(),
+                phone : $('#search_tel').val()
+            };
+            return temp;
+        },
+        columns : [ {
+            title : 'id',
+            field : 'index',
+            formatter: serialNumber
+        },
+            {
+            title : '用户名',
+            field : 'username',
+            sortable : true
+        }, {
+            title : '邮箱',
+            field : 'email',
+            sortable : true
+        }, {
+            title : '手机号',
+            field : 'phone',
+        }, {
+            title : '姓氏',
+            field : 'lastName',
+        }, {
+            title : '名称',
+            field : 'firstName',
+        },{
+            title : '首要地址',
+            field : 'address1',
+        },{
+            title : '次要地址',
+            field : 'address2',
+        },{
+            title : '城市',
+            field : 'city',
+        },{
+            title : '州县',
+            field : 'state',
+        },{
+            title : '区号',
+            field : 'zip',
+        },{
+            title : '国家',
+            field : 'country',
+        },
+            {
+            title : '操作',
+            field : 'id',
+            formatter : operation,//对资源进行操作
+        },{
+
+        }
+        ]
+    })
+
+    //value代表该列的值，row代表当前对象
+    function formatSex(value, row, index) {
+        return value == 1 ? "男" : "女";
+        //或者 return row.sex == 1 ? "男" : "女";
+    }
+
+    //删除、编辑操作
+    function operation(value, row, index) {
+
+
+
+
+
+        var htm = "<input type=\"button\" value=\"按钮\" onclick=\"javascript:window.location.href='/admin/memberEdit'\"/>"
+        return htm;
+    }
+
+    //查询按钮事件
+    $('#search_btn').click(function() {
+        $('#mytab').bootstrapTable('refresh', {
+            url : '/admin/accountList'
+        });
+    })
+
+
+    function serialNumber(value, row, index) {
+        var option = $("#mytab").bootstrapTable('getOptions');
+        var pageSize = option.pageSize; //获取每页显示的数量
+        var pageNumber = option.pageNumber; //获取当前是第几页
+        return pageSize * (pageNumber - 1) + index + 1; //返回序号，注意index是从0开始的，所以要加上1
+
+    }
+
+</script>
+
+
+</body>
+</html>

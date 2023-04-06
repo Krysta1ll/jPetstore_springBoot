@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Common/template_head::head('editAccount')">
+
+</head>
+<body>
+
+<div id="Content">
+    <div id="Catalog">
+        <form action="/admin/confirmEdit" method="post">
+
+            <h3>User Information</h3>
+
+            <table>
+                <tr>
+                    <td>User ID:</td>
+                    <td><input type="text" name="user" /></td>
+                </tr>
+                <tr>
+                    <td>New password:</td>
+                    <td><input type="password" name="password" /></td>
+                </tr>
+                <tr>
+                    <td>Repeat password:</td>
+                    <td><input type="password" name="repeatedPassword" /></td>
+                    <td><font color="red" th:text="${message?:''}"></td>
+                </tr>
+            </table>
+
+            <table th:replace="AccountViews/includeAccountFields::accountTable"></table>
+            <h3 th:replace="AccountViews/includeAccountFields::h3"></h3>
+            <table th:replace="AccountViews/includeAccountFields::profileTable"></table>
+
+            <input type="submit" name="editAccount" value="Save Account Information" />
+
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+</html>

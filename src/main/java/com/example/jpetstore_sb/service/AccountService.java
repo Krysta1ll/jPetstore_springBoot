@@ -2,6 +2,8 @@ package com.example.jpetstore_sb.service;
 
 import com.example.jpetstore_sb.model.Account;
 
+import java.util.List;
+
 public interface AccountService {
 
 
@@ -15,4 +17,6 @@ public interface AccountService {
 
 
     public void updateAccount(Account account);
+
+    public List<Account> getAll();
 }

@@ -124,4 +124,10 @@
         VALUES (#{password}, #{username})
     </insert>
 
+    <select id="getAll" resultType="com.example.jpetstore_sb.model.Account">
+        SELECT * FROM ACCOUNT,SIGNON
+            WHERE account.userid=signon.username
+    </select>
+
+
 </mapper>

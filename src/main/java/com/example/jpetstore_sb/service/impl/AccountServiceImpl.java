@@ -6,6 +6,8 @@ import com.example.jpetstore_sb.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountServiceImpl implements AccountService {
 
@@ -37,5 +39,15 @@ public class AccountServiceImpl implements AccountService {
             accountMapper.updateSignon(account);
         }
     }
+
+    @Override
+    public List<Account> getAll(){
+        return accountMapper.getAll();
+    }
+
+
+
+
+
 
 }
