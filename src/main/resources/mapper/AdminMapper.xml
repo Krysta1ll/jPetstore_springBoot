@@ -30,4 +30,20 @@ WHERE username = #{username}
         SET password = #{password}, email = #{email}
         WHERE username = #{username}
     </insert>
+
+
+    <update id="updateAccount" parameterType="com.example.jpetstore_sb.model.Account">
+        UPDATE ACCOUNT SET
+                           EMAIL = #{email},
+                           FIRSTNAME = #{firstName},
+                           LASTNAME = #{lastName},
+                           ADDR1 = #{address1},
+                           ADDR2 = #{address2,jdbcType=VARCHAR},
+                           CITY = #{city},
+                           STATE = #{state},
+                           ZIP = #{zip},
+                           COUNTRY = #{country},
+                           PHONE = #{phone}
+        WHERE USERID = #{username}
+    </update>
 </mapper>

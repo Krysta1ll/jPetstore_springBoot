@@ -17,4 +17,6 @@ public interface OrderService {
 
     // 生成订单序列
     public int getNextId(String name) ;
+
+    public List<Order> getAll();
 }

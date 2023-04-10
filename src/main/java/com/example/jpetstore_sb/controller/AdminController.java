@@ -4,19 +4,20 @@ import com.alibaba.fastjson.JSON;
 
 import com.example.jpetstore_sb.model.Account;
 import com.example.jpetstore_sb.model.Admin;
+import com.example.jpetstore_sb.model.Order;
 import com.example.jpetstore_sb.service.AccountService;
 import com.example.jpetstore_sb.service.AdminService;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import com.example.jpetstore_sb.service.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,10 +26,11 @@ public class AdminController {
 
     private final AdminService adminService;
     private final AccountService accountService;
-
-    public AdminController(AdminService adminService, AccountService accountService) {
+    private final OrderService orderService;
+    public AdminController(AdminService adminService, AccountService accountService, OrderService orderService) {
         this.adminService = adminService;
         this.accountService = accountService;
+        this.orderService = orderService;
     }
 
     private final Logger logger= LoggerFactory.getLogger(AdminController.class);
@@ -100,13 +102,11 @@ public class AdminController {
 
     }
     @PostMapping("/admin/confirmEdit")
-    public String confirmEdit(@Valid Account account, HttpSession session, Model model){
+    public String confirmEdit(@Valid Account account){
 
         if(!account.getPassword().equals("") && !account.getRepeatedPassword().equals("") && account.getPassword().equals(account.getRepeatedPassword())){
-            accountService.updateAccount(account);
-            session.setAttribute("account",account);
-            model.addAttribute("account",account);
-
+            adminService.updateAccount(account);
+            logger.info("修改成功");
             return "AdminViews/accountList";
         }else{
             logger.info("确认修改用户信息");
@@ -123,7 +123,32 @@ public class AdminController {
         System.out.println("getCustomerList===");
         return test;
     }
+    @ResponseBody
+    @GetMapping("/getOrderList")
+    public String getOrderList(){
+   List<Order> temp =orderService.getAll();
+  String test =JSON.toJSONString(temp);
+   return test;
 
 
+    }
+
+   @GetMapping("/admin/welcome")
+   public String welcome(HttpSession session){
+
+
+        return "AdminViews/welcome";
+   }
+
+    @GetMapping("/admin/orderList")
+    public String orderList(Admin admin,HttpSession session,Model model){
+        admin = (Admin) session.getAttribute("admin");
+        if(admin!=null)
+        {
+            return "AdminViews/orderList";
+        }
+        return "/";
+
+    }
 
 }

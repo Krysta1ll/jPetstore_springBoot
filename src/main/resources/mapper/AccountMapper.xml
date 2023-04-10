@@ -126,7 +126,8 @@
 
     <select id="getAll" resultType="com.example.jpetstore_sb.model.Account">
         SELECT * FROM ACCOUNT,SIGNON
-            WHERE account.userid=signon.username
+        WHERE account.userid=signon.username
+
     </select>
 
 

@@ -1,5 +1,6 @@
 package com.example.jpetstore_sb.mapper;
 
+import com.example.jpetstore_sb.model.Account;
 import com.example.jpetstore_sb.model.Admin;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,4 +13,6 @@ public interface AdminMapper {
     void insertAdmin(Admin admin);
 
     void updateAdmin(Admin admin);
+
+    void updateAccount(Account account);
 }

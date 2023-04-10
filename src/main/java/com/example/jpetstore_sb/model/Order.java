@@ -13,6 +13,7 @@ public class Order implements Serializable {
 
     private int orderId;
     private String username;
+    private String userid;
     private Date orderDate;
 
     private String shipAddress1;
@@ -49,6 +50,13 @@ public class Order implements Serializable {
         return orderId;
     }
 
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
     public void setOrderId(int orderId) {
         this.orderId = orderId;
     }

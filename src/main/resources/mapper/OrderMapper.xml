@@ -89,4 +89,10 @@
         VALUES (#{orderId,jdbcType=NUMERIC}, #{orderId,jdbcType=NUMERIC}, #{orderDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR})
     </insert>
 
+
+    <select id="getAll" resultType="com.example.jpetstore_sb.model.Order">
+     SELECT * FROM jpetStore.orders,jpetStore.orderstatus
+     WHERE orders.orderid=orderstatus.orderid
+
+    </select>
 </mapper>

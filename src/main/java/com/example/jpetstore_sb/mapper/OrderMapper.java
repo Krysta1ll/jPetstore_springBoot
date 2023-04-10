@@ -18,4 +18,6 @@ public interface OrderMapper {
     // 插入新订单状态
     void insertOrderStatus(Order order);
 
+    //获取全部
+    List<Order>  getAll();
 }

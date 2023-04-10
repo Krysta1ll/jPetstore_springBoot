@@ -9,6 +9,7 @@ import com.example.jpetstore_sb.model.LineItem;
 import com.example.jpetstore_sb.model.Order;
 import com.example.jpetstore_sb.model.Sequence;
 import com.example.jpetstore_sb.service.OrderService;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -95,4 +96,10 @@ public class OrderServiceImpl implements OrderService {
             throw new RuntimeException("Can't updateSequence!");
         }
     }
+    @Override
+    public List<Order> getAll(){
+        return orderMapper.getAll();
+
+    }
+
 }

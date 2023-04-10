@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>accountList</title>
+    <title>orderList</title>
     <link rel="stylesheet" href="/css/layui.css" media="all">
     <!-- 引入的css文件  -->
     <link href="/css/bootstrap.css" rel="stylesheet" />
@@ -14,6 +14,7 @@
     <script src="/js/bootstrap-table.min.js"></script>
     <script src="/js/bootstrap-table-zh-CN.js"></script>
     <script src="/js/xadmin.js"></script>
+    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/xadmin.css">
     <script src="/lib/layui/layui.js" charset="utf-8"></script>
@@ -21,10 +22,13 @@
 </head>
 <body>
 <table id="mytab" class="table table-hover"></table>
+
 <script>
+
+
     $('#mytab').bootstrapTable({
         method : 'get',
-        url : "/getCustomerList",//请求路径
+        url : "/getOrderList",//请求路径
         striped : true, //是否显示行间隔色
         pageNumber : 1, //初始化加载第一页
         pagination : true,//是否分页
@@ -50,48 +54,59 @@
             formatter: serialNumber
         },
             {
-            title : '用户名',
-            field : 'username',
-            sortable : true
-        }, {
-            title : '邮箱',
-            field : 'email',
-            sortable : true
-        }, {
-            title : '手机号',
-            field : 'phone',
-        }, {
-            title : '姓氏',
-            field : 'lastName',
-        }, {
-            title : '名称',
-            field : 'firstName',
-        },{
-            title : '首要地址',
-            field : 'addr1',
-        },{
-            title : '次要地址',
-            field : 'addr2',
-        },{
-            title : '城市',
-            field : 'city',
-        },{
-            title : '州县',
-            field : 'state',
-        },{
-            title : '区号',
-            field : 'zip',
-        },{
-            title : '国家',
-            field : 'country',
-        },
+                title : '订单号',
+                field : 'orderId',
+                sortable : true
+            }, {
+                title : '用户名',
+                field : 'userid',
+                sortable : true
+            }, {
+                title : '总金额',
+                field : 'totalPrice',
+            },{
+                    title : '姓氏',
+                field : 'billToLastName',
+            },{
+                title : '名称',
+                field : 'billToFirstName',
+            },
             {
-            title : '操作',
-            field : 'id',
-            formatter : operation,//对资源进行操作
-        },{
+                title : '支付类型',
+                field : 'cardType',
+            }, {
+                title : '信用卡号',
+                field : 'creditCard',
+            },{
+                title : '快递公司',
+                field : 'courier',
+            },{
+                title : '次要地址',
+                field : 'shipAddress2',
+            },{
+                title : '目的城市',
+                field : 'shipCity',
+            },{
+                title : '目的州县',
+                field : 'shipState',
+            },{
+                title : '目的区号',
+                field : 'shipZip',
+            },{
+                title : '目的国家',
+                field : 'shipCountry',
+            },{
+                title : '状态',
+                field : 'status',
+                formatter:orderStatus,
+            },
+            {
+                title : '操作',
+                field : 'id',
+                 formatter : operation,//对资源进行操作
+            },{
 
-        }
+            }
         ]
     })
 
@@ -108,7 +123,7 @@
 
 
 
-        var htm = "<input type=\"button\" value=\"按钮\" onclick=\"javascript:window.location.href='/admin/memberEdit'\"/>"
+        var htm = "<input type=\"button\" value=\"修改\" onclick=\"javascript:window.location.href='/admin/memberEdit'\"/>"
         return htm;
     }
 
@@ -128,6 +143,14 @@
 
     }
 
+    function dateToStr(value){
+
+        var date =date
+
+    }
+    function orderStatus(value) {
+        return value == "P" ? "未处理" : "已处理";
+            }
 </script>
 
 
