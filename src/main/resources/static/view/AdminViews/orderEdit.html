@@ -21,32 +21,38 @@
     <div class="message">订单修改</div>
     <div id="darkbannerwrap"></div>
     <div>
-        <form action="/admin/confirmEdit"   class="layui-form" method="post">
+        <form action="/admin/confirmEdit_order"   class="layui-form" method="post">
 
 
 
             <table>
                 <tr>
-                    <td>用户名</td>
+                    <td>订单号</td>
                     <!--                    <td id="username" name="username"></td>-->
-                    <td><input id="username" type="text" name="username" class="layui-input"/></td>
+                    <td><input id="orderId" type="text" name="orderId" class="layui-input"/></td>
                 </tr>
                 <hr class="hr15">
                 <tr>
-                    <td>新密码</td>
-                    <td><input type="password" name="password" class="layui-input"/></td>
+                    <td>总金额</td>
+                    <td><input type="text" name="totalPrice" class="layui-input"/></td>
                 </tr>
                 <tr>
-                    <td>重复密码</td>
-                    <td><input type="password" name="repeatedPassword" /></td>
-                    <td><font color="red" th:text="${message?:''}"/></td>
+                    <td>首要地址</td>
+                    <td><input type="text" name="shipAddress1" /></td>
                 </tr>
-                <input type="checkbox" title="test">
+                <tr>
+                    <td>次要地址</td>
+                    <td><input type="text" name="shipAddress2" class="layui-input"/></td>
+                </tr>
+                <tr>
+                    <td>银行卡号</td>
+                    <td><input type="text" name="creditCard" class="layui-input"/></td>
+                </tr>
             </table>
 
-            <table th:replace="AccountViews/includeAccountFields::accountTable"></table>
 
-            <input type="submit" name="editAccount" value="保存修改" />
+
+            <input type="submit" name="editOrder" value="保存修改" />
 
         </form>
 
@@ -55,10 +61,10 @@
 <script>
     function displaySessionValue() {
         // 从 sessionStorage 中获取指定键名的值
-        var value = sessionStorage.getItem("username")
+        var value = sessionStorage.getItem("orderId")
         // 在网页上输出该值
-        sessionStorage.removeItem("username")
-        document.getElementById("username").value = value
+        sessionStorage.removeItem("orderId")
+        document.getElementById("orderId").value = value
     }
 
     window.onload = function() {

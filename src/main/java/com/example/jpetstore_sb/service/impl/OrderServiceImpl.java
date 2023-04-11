@@ -90,16 +90,22 @@ public class OrderServiceImpl implements OrderService {
                     + " sequence).");
         }
         Sequence parameterObject = new Sequence(name, sequence.getNextId() + 1);
-        if(sequenceMapper.updateSequence(parameterObject)){
+        if (sequenceMapper.updateSequence(parameterObject)) {
             return parameterObject.getNextId();
-        }else {
+        } else {
             throw new RuntimeException("Can't updateSequence!");
         }
     }
+
     @Override
-    public List<Order> getAll(){
+    public List<Order> getAll() {
         return orderMapper.getAll();
 
+    }
+
+    @Override
+    public void updateOrder(Order order){
+        orderMapper.updateOrder(order);
     }
 
 }

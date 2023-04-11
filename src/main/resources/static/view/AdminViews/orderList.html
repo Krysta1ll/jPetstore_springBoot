@@ -110,22 +110,16 @@
         ]
     })
 
-    //value代表该列的值，row代表当前对象
-    function formatSex(value, row, index) {
-        return value == 1 ? "男" : "女";
-        //或者 return row.sex == 1 ? "男" : "女";
+    function operation(value, row, index) {
+        return '<button class="btn btn-primary" onclick="saveOrderIdAndRedirect(\'' + row.orderId + '\')">修改</button>';
     }
 
-    //删除、编辑操作
-    function operation(value, row, index) {
+    function saveOrderIdAndRedirect(value){
+        sessionStorage.setItem("orderId",value)
+        console.log(value)
+        window.location.href='/admin/orderEdit'
 
 
-
-
-
-        var htm = "<input type=\"button\" value=\"修改\" onclick=\"javascript:window.location.href='/admin/orderEdit'\"/>" +
-            "<input type=\"button\" value=\"修改\" onclick=\"javascript:window.location.href='/admin/sentGoods'\"/>"
-        return htm;
     }
 
     //查询按钮事件

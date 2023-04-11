@@ -19,4 +19,5 @@ public interface OrderService {
     public int getNextId(String name) ;
 
     public List<Order> getAll();
+    public void updateOrder(Order order);
 }

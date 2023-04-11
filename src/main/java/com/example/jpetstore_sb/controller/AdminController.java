@@ -120,6 +120,16 @@ public class AdminController {
 
     }
 
+    @PostMapping("/admin/confirmEdit_order")
+    public String confirmEdit_order(@Valid Order order){
+      orderService.updateOrder(order);
+      return "AdminViews/orderList";
+
+
+
+
+    }
+
     @ResponseBody
     @GetMapping("/getCustomerList")
     public String getCustomerList() {
