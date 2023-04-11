@@ -103,14 +103,17 @@
 
     //删除、编辑操作
     function operation(value, row, index) {
-
-
-
-
-
-        var htm = "<input type=\"button\" value=\"按钮\" onclick=\"javascript:window.location.href='/admin/memberEdit'\"/>"
-        return htm;
+        return '<button class="btn btn-primary" onclick="saveUsernameAndRedirect(\'' + row.username + '\')">修改</button>';
     }
+
+    function saveUsernameAndRedirect(value){
+        sessionStorage.setItem("username",value)
+        console.log(value)
+        window.location.href='/admin/memberEdit'
+
+
+    }
+
 
     //查询按钮事件
     $('#search_btn').click(function() {

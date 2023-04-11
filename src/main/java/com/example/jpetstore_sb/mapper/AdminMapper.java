@@ -15,4 +15,6 @@ public interface AdminMapper {
     void updateAdmin(Admin admin);
 
     void updateAccount(Account account);
+
+
 }

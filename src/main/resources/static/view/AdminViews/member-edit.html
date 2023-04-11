@@ -28,7 +28,8 @@
             <table>
                 <tr>
                     <td>用户名</td>
-                    <td><input type="text" name="username" class="layui-input"/></td>
+<!--                    <td id="username" name="username"></td>-->
+                    <td><input id="username" type="text" name="username" class="layui-input"/></td>
                 </tr>
                 <hr class="hr15">
                 <tr>
@@ -38,7 +39,7 @@
                 <tr>
                     <td>重复密码</td>
                     <td><input type="password" name="repeatedPassword" /></td>
-                    <td><font color="red" th:text="${message?:''}"></td>
+                    <td><font color="red" th:text="${message?:''}"/></td>
                 </tr>
                 <input type="checkbox" title="test">
             </table>
@@ -51,7 +52,21 @@
 
     </div>
 </div>
+<script>
+    function displaySessionValue() {
+        // 从 sessionStorage 中获取指定键名的值
+        var value = sessionStorage.getItem("username")
+        // 在网页上输出该值
+        sessionStorage.removeItem("username")
+        document.getElementById("username").value = value
+    }
 
+    window.onload = function() {
+        displaySessionValue();
+    };
+
+
+</script>
 
 </body>
 </html>

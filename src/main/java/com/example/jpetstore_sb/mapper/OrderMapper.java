@@ -20,4 +20,6 @@ public interface OrderMapper {
 
     //获取全部
     List<Order>  getAll();
+
+    void updateOrderById(String id);
 }
