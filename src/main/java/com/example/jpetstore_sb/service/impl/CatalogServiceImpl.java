@@ -65,4 +65,24 @@ public class CatalogServiceImpl implements CatalogService {
     public boolean isItemInStock(String itemId) {
         return itemMapper.getInventoryQuantity(itemId) > 0;
     }
+
+    @Override
+    public List<Item> getAllItems() {
+        return itemMapper.getAllItems();
+    }
+
+    @Override
+    public void updateItem(Item item) {
+        itemMapper.updateItem(item);
+    }
+
+    @Override
+    public void deleteItem(String itemId) {
+        itemMapper.deleteItem(itemId);
+    }
+
+    @Override
+    public void insertItem(Item item) {
+        itemMapper.insertItem(item);
+    }
 }

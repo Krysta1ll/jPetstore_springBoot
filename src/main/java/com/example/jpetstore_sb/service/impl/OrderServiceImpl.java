@@ -108,4 +108,14 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.updateOrder(order);
     }
 
+    @Override
+    public void updateOrderStatus(Order order){
+        orderMapper.updateOrderStatus(order);
+    }
+
+    @Override
+    public void deleteOrder(int orderId){
+        orderMapper.deleteOrder(orderId);
+    }
+
 }

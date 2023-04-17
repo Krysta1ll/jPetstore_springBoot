@@ -18,4 +18,13 @@ public interface ItemMapper {
 
     // 根据itemId 得到对应的某个商品
     Item getItem(String itemId);
+
+    List<Item> getAllItems();
+
+    void updateItem(Item item);
+
+
+    void deleteItem(String itemId);
+
+    void insertItem(Item item);
 }

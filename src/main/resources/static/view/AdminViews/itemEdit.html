@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/xadmin.css">
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/lib/layui/layui.js" charset="utf-8"></script>
+  <!--[if lt IE 9]>
+  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="login layui-anim layui-anim-up">
+  <div class="message">商品信息修改</div>
+  <div id="darkbannerwrap"></div>
+  <div>
+    <form action="/admin/confirmEdit_item"   class="layui-form" method="post">
+
+
+
+      <table>
+        <tr>
+          <td>商品号</td>
+          <!--                    <td id="username" name="username"></td>-->
+          <td><input id="itemId" type="text" name="itemId" class="layui-input"/></td>
+        </tr>
+        <hr class="hr15">
+        <tr>
+          <td>单价</td>
+          <td><input type="text" name="listPrice" /></td>
+        </tr>
+        <tr>
+          <td>进价</td>
+          <td><input type="text" name="unitCost" class="layui-input"/></td>
+        </tr>
+      </table>
+
+
+
+      <input type="submit" name="editItem" value="保存修改" />
+
+    </form>
+
+  </div>
+</div>
+<script>
+  function displaySessionValue() {
+    // 从 sessionStorage 中获取指定键名的值
+    var value = sessionStorage.getItem("itemId")
+    // 在网页上输出该值
+    sessionStorage.removeItem("itemId")
+    document.getElementById("itemId").value = value
+  }
+
+  window.onload = function() {
+    displaySessionValue();
+  };
+
+
+</script>
+
+</body>
+</html>

@@ -111,7 +111,9 @@
     })
 
     function operation(value, row, index) {
-        return '<button class="btn btn-primary" onclick="saveOrderIdAndRedirect(\'' + row.orderId + '\')">修改</button>';
+        return '<button class="btn btn-primary" onclick="saveOrderIdAndRedirect(\'' + row.orderId + '\')">修改</button>' +
+            '<button class="btn btn-primary" onclick="updateOrderStatus(\'' + row.orderId + '\')">发货</button>"' +
+            '<button class="btn btn-primary" onclick="deleteOrder(\'' + row.orderId + '\')">删除</button>"';
     }
 
     function saveOrderIdAndRedirect(value){
@@ -120,6 +122,45 @@
         window.location.href='/admin/orderEdit'
 
 
+    }
+
+    function deleteOrder(value){
+        $.ajax({
+            url: "/order/deleteOrder",
+            type: "post",
+            data: {
+                orderId: value,
+            },
+            success: function (data) {
+                if (data == "success") {
+                    layer.msg('删除成功', {icon: 1});
+                    $('#mytab').bootstrapTable('refresh', {
+                        url : '/getOrderList'
+                    });
+                } else {
+                    layer.msg('删除失败', {icon: 2});
+                }
+            }
+        });
+    }
+    function updateOrderStatus(value){
+        $.ajax({
+            url: "/order/updateOrderStatus",
+            type: "post",
+            data: {
+                orderId: value,
+            },
+            success: function (data) {
+                if (data == "success") {
+                    layer.msg('发货成功', {icon: 1});
+                    $('#mytab').bootstrapTable('refresh', {
+                        url : '/getOrderList'
+                    });
+                } else {
+                    layer.msg('发货失败', {icon: 2});
+                }
+            }
+        });
     }
 
     //查询按钮事件

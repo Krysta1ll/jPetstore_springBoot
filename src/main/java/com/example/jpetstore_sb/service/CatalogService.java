@@ -24,4 +24,10 @@ public interface CatalogService {
 
     public boolean isItemInStock(String itemId) ;
 
+    public List<Item> getAllItems();
+    public void updateItem(Item item);
+
+    public void deleteItem(String itemId);
+
+    void insertItem(Item item);
 }

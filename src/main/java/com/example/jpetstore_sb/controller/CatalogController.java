@@ -1,29 +1,32 @@
 package com.example.jpetstore_sb.controller;
 
-import com.example.jpetstore_sb.model.Category;
-import com.example.jpetstore_sb.model.Item;
-import com.example.jpetstore_sb.model.Product;
+import com.alibaba.fastjson.JSON;
+import com.example.jpetstore_sb.model.*;
 import com.example.jpetstore_sb.service.CatalogService;
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
 @SessionAttributes({"product", "cart","account","category"})
 public class CatalogController {
-
+    private final SqlSession sqlSession;
     private final CatalogService catalogService;
+
+
 
     // 日志功能
     private final Logger logger = LoggerFactory.getLogger(CatalogController.class);
 
-    public CatalogController(CatalogService catalogService) {
+    public CatalogController(SqlSession sqlSession, CatalogService catalogService) {
+        this.sqlSession = sqlSession;
         this.catalogService = catalogService;
     }
 
@@ -93,5 +96,58 @@ public class CatalogController {
         return "StoreViews/searchProduct";
     }
 
+    @ResponseBody
+    @GetMapping("/getItemList")
+    public String getItemList(){
+        sqlSession.clearCache();
+        sqlSession.getConfiguration().getCacheNames().forEach(name -> sqlSession.getConfiguration().getCache(name).clear());
+        List<Item> temp = catalogService.getAllItems();
+        String test = JSON.toJSONString(temp);
+        return test;
+    }
 
+
+    @GetMapping("/admin/itemEdit")
+    public String itemEdit(Admin admin,HttpSession session){
+        admin = (Admin) session.getAttribute("admin");
+        if (admin != null) {
+            return "AdminViews/itemEdit";
+        }
+        return "/";
+
+    }
+
+    @PostMapping("/admin/confirmEdit_item")
+    public String confirmEdit_order(@Valid Item item){
+        catalogService.updateItem(item);
+        return "AdminViews/itemList";
+    }
+
+
+    @PostMapping("/item/deleteItem")
+    public String deleteOrder(@RequestParam("itemId") String itemId,HttpSession session,Model model){
+        catalogService.deleteItem(itemId);
+        logger.info("删除订单");
+        return "AdminViews/itemList";
+    }
+
+
+    @GetMapping("/admin/itemAdd")
+    public String itemAdd(Admin admin,HttpSession session){
+        admin = (Admin) session.getAttribute("admin");
+        if (admin != null) {
+            return "AdminViews/itemAdd";
+        }
+        return "/";
+
+    }
+
+
+
+    @PostMapping("/admin/confirmAdd_item")
+    public String confirmAdd_item(@Valid Item item){
+        catalogService.insertItem(item);
+        return "AdminViews/itemList";
+    }
 }
+

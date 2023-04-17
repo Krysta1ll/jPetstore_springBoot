@@ -62,4 +62,26 @@
         WHERE ITEMID = #{itemId}
     </update>
 
+
+    <select id="getAllItems" resultType="com.example.jpetstore_sb.model.Item">
+       SELECT * FROM ITEM
+
+
+    </select>
+
+    <update id="updateItem" parameterType="com.example.jpetstore_sb.model.Item">
+        UPDATE ITEM SET LISTPRICE = #{listPrice},
+            UNITCOST = #{unitCost}
+            WHERE ITEMID = #{itemId}
+    </update>
+
+
+    <delete id="deleteItem" parameterType="java.lang.String">
+        DELETE FROM ITEM WHERE ITEMID = #{itemId}
+    </delete>
+
+    <insert id="insertItem" parameterType="com.example.jpetstore_sb.model.Item">
+        INSERT INTO ITEM (ITEMID, LISTPRICE, UNITCOST, SUPPLIER, PRODUCTID, STATUS, ATTR1, ATTR2, ATTR3, ATTR4, ATTR5)
+        VALUES (#{itemId}, #{listPrice}, #{unitCost}, #{supplierId}, #{productId}, '0', '0', '0', '0', '0', '0')
+    </insert>
 </mapper>

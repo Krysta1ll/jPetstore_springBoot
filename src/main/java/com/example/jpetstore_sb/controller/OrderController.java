@@ -148,4 +148,18 @@ public class OrderController {
 
     }
 
+
+    @PostMapping("/order/updateOrderStatus")
+    public String updateOrder(@Valid Order order,HttpSession session,Model model){
+        orderService.updateOrderStatus(order);
+        logger.info("更新订单");
+        return "AdminViews/orderList";
+    }
+
+    @PostMapping("/order/deleteOrder")
+    public String deleteOrder(@RequestParam("orderId") int orderId,HttpSession session,Model model){
+        orderService.deleteOrder(orderId);
+        logger.info("删除订单");
+        return "AdminViews/orderList";
+    }
 }

@@ -191,4 +191,17 @@ public class AdminController {
 
     }
 
+
+    @GetMapping("/admin/itemList")
+    public String itemList(Admin admin, HttpSession session) {
+        admin = (Admin) session.getAttribute("admin");
+        if (admin != null) {
+            return "AdminViews/itemList";
+        }
+        return "/";
+
+    }
+
+
+
 }

@@ -112,4 +112,15 @@
 
     </update>
 
+
+    <update id="updateOrderStatus" parameterType="com.example.jpetstore_sb.model.Order">
+        UPDATE ORDERSTATUS
+        SET STATUS = 'D'
+        WHERE ORDERID = #{orderId}
+    </update>
+
+    <delete id="deleteOrder" parameterType="java.lang.Integer">
+        DELETE FROM ORDERS
+        WHERE ORDERID = #{value}
+    </delete>
 </mapper>

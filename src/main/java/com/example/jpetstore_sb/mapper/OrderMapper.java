@@ -22,4 +22,7 @@ public interface OrderMapper {
     List<Order>  getAll();
 
     void updateOrder(Order order);
+
+    void updateOrderStatus(Order order);
+    void deleteOrder(int orderId);
 }

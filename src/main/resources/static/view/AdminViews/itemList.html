@@ -1,10 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>orderList</title>
+    <link rel="stylesheet" href="/css/layui.css" media="all">
+    <!-- 引入的css文件  -->
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/js/bootstrap-table.min.css"
+          rel="stylesheet">
+    <!-- 引入的js文件 -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap-table.min.js"></script>
+    <script src="/js/bootstrap-table-zh-CN.js"></script>
+    <script src="/js/xadmin.js"></script>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/css/xadmin.css">
+    <script src="/lib/layui/layui.js" charset="utf-8"></script>
+
 </head>
 <body>
+<table id="mytab" class="table table-hover"></table>
+
+<script>
+
+
+    $('#mytab').bootstrapTable({
+        method : 'get',
+        url : "/getItemList",//请求路径
+        striped : true, //是否显示行间隔色
+        pageNumber : 1, //初始化加载第一页
+        pagination : true,//是否分页
+        sidePagination : 'client',//server:服务器端分页|client：前端分页
+        pageSize : 5,//单页记录数
+        pageList : [ 5, 10, 20, 30 ],//可选择单页记录数
+        showRefresh : true,//刷新按钮
+        search:true,
+        queryParams : function(params) {//上传服务器的参数
+            var temp = {//如果是在服务器端实现分页，limit、offset这两个参数是必须的
+                limit : params.limit, // 每页显示数量
+                offset : params.offset, // SQL语句起始索引
+                //page : (params.offset / params.limit) + 1, //当前页码
+
+                username : $('#search_name').val(),
+                phone : $('#search_tel').val()
+            };
+            return temp;
+        },
+        columns : [ {
+            title : 'id',
+            field : 'index',
+            formatter: serialNumber
+        },
+            {
+                title : '商品号',
+                field : 'itemId',
+                sortable : true
+            }, {
+                title : '分类号',
+                field : 'productId',
+                sortable : true
+            }, {
+                title : '单价',
+                field : 'listPrice',
+            },{
+                title : '进价',
+                field : 'unitCost',
+            },{
+                title : '供应商ID',
+                field : 'supplierId',
+            },
+            {
+                title : '操作',
+                field : 'id',
+                formatter : operation,//对资源进行操作
+            },{
+
+            }
+        ]
+    })
+
+    function operation(value, row, index) {
+        return '<button class="btn btn-primary" onclick="saveOrderIdAndRedirect(\'' + row.itemId + '\')">修改</button>'+
+            '<button class="btn btn-primary" onclick="deleteOrder(\'' + row.itemId + '\')">删除</button>"';
+    }
+
+    function saveOrderIdAndRedirect(value){
+        sessionStorage.setItem("itemId",value)
+        console.log(value)
+        window.location.href='/admin/itemEdit'
+
+
+    }
+
+    function deleteOrder(value){
+        $.ajax({
+            url: "/item/deleteItem",
+            type: "post",
+            data: {
+                itemId: value,
+            },
+            success: function (data) {
+                if (data == "success") {
+                    layer.msg('删除成功', {icon: 1});
+                    $('#mytab').bootstrapTable('refresh', {
+                        url : '/getOrderList'
+                    });
+                } else {
+                    layer.msg('删除失败', {icon: 2});
+                }
+            }
+        });
+
+    }
+
+    function serialNumber(value, row, index) {
+        var option = $("#mytab").bootstrapTable('getOptions');
+        var pageSize = option.pageSize; //获取每页显示的数量
+        var pageNumber = option.pageNumber; //获取当前是第几页
+        return pageSize * (pageNumber - 1) + index + 1; //返回序号，注意index是从0开始的，所以要加上1
+
+    }
+
+    function dateToStr(value){
+
+        var date =date
+
+    }
+    function orderStatus(value) {
+        return value == "P" ? "未处理" : "已处理";
+    }
+</script>
+
 
 </body>
 </html>

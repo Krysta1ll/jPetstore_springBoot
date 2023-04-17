@@ -20,4 +20,7 @@ public interface OrderService {
 
     public List<Order> getAll();
     public void updateOrder(Order order);
+    public void updateOrderStatus(Order order);
+    public void deleteOrder(int orderId);
+
 }
