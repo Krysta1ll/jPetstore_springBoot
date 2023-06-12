@@ -201,8 +201,6 @@ import java.util.List;
            @GetMapping("/test")
         public List<Account> test(){
             List<Account> test = accountService.getAll();
-
-
             return test;
            }
 
